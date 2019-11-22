@@ -1,7 +1,7 @@
 let root = document.getElementById("map");
 let gasData = []
 const urlApi =
-    "https://cors-anywhere.herokuapp.com/https://api-gas-stations-mex.herokuapp.com/gasstations?offset=0&limit=100";
+    "./gaso.json";
 
 navigator.geolocation.getCurrentPosition(getMap, noGet);
 
@@ -24,17 +24,17 @@ fetchApi(urlApi);
 let locationsInfo = []
 const getLocation = (gasData) => {
     // alert('listo, entre')
-    // console.log('despues de empujar a variable', gasData)
+     console.log('despues de empujar a variable', gasData)
     gasData.forEach(station => {
-        // console.log(station)
+        console.log(station)
         let locationData = {
                 name: station.name,
                 position: {
-                    lat: parseFloat(station.location.x),
-                    lng: parseFloat(station.location.y)
+                    lat: parseFloat(station.location.y),
+                    lng: parseFloat(station.location.x)
                 }
             }
-            // console.log(locationData)
+             console.log(locationData)
         locationsInfo.push(locationData)
     })
 }
@@ -55,9 +55,11 @@ function getMap(position) {
         center: latLng
     }
     let map = new google.maps.Map(root, objConfig);
+    const image = './6274385.jpg'
     marker = new google.maps.Marker({
         position: latLng,
         map: map,
+        icon: image
         // animation: google.maps.Animation.BOUNCE
     });
     console.log(locationsInfo)
@@ -66,7 +68,8 @@ function getMap(position) {
         return new google.maps.Marker({
             position: location.position,
             label: location.name,
-            map: map
+            map: map,
+            icon:image
         })
     });
 };

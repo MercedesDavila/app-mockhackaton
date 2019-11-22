@@ -1,6 +1,6 @@
 const getLocations = () => {
   fetch(
-    "https://cors-anywhere.herokuapp.com/https://api-gas-stations-mex.herokuapp.com/gasstations?offset=0&limit=100"
+    "./gaso.json"
   )
     .then(response => response.json())
     .then(locations => {
@@ -49,8 +49,10 @@ const dibujarMapa = (obj, locationsInfo) => {
     });
   });
 };
+
 window.addEventListener("load", getLocations);
-function noGet() {
-  alert("Porfavor habilita el permiso para compartir ubicación");
-}
+// function noGet() {
+//   alert("Porfavor habilita el permiso para compartir ubicación");
+// }
+
 
