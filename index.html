@@ -25,10 +25,10 @@
     </section>
     <section class="list-section">
         <div class="filters-bar">
-            <select name="price" id="price-select" class="select-filter">
+            <select name="price" id="price-select" class="select-filter" onclick="sorLocations()">
                  <option selected disabled>Precio</option>
-                 <option id ="orderNameDes" value="least">De menor a mayor</option> 
-                 <option id ="orderNameAsc" value="greatest">De mayor a menor</option> 
+                 <option id ="orderNameAsc" value="least">De menor a mayor</option> 
+                 <option id ="orderNameDes" value="greatest">De mayor a menor</option> 
             </select>
 
             <select name="type" id="type-select" class="select-filter">
@@ -72,6 +72,7 @@
             <figure class="logo-container"><img src="./img/logos/bp-3.svg" alt="BP"></figure>
         </div>
     </section>
+
     </main>
     <footer>
         <button type="button" class="menu-item"><figure><img src="./img/png/003-user.png" alt="Perfil" class="icon-menu"><p>Perfil</p></figure></button>
