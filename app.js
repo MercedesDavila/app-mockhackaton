@@ -75,9 +75,9 @@ const initMap = (obj, locationsInfo) => {
                 title: place.name
             });
         })
-        // markers.addListener('click', function() {
-        //     infowindow.open(map, markers);
-        // });
+        markers.addListener('click', function() {
+            infowindow.open(map, markers);
+         });
 
 };
 
@@ -86,3 +86,34 @@ window.addEventListener("load", getLocations);
 function noGet() {
     alert("Porfavor habilita el permiso para compartir ubicación");
 }
+
+
+// Función ordenar por precio
+
+orderNameAsc.addEventListener('click', () => { 
+    getLocations(sorData(getLocations, 'gas_price', 'ASC'));
+});
+orderNameDes.addEventListener('click', () => { 
+    getLocations(sorData(getLocations, 'gas_price', 'DESC'));
+});
+
+const sorLocations = (getLocations, sortBy, sortOrder) => {
+    let locationsOrder = [];
+    switch (sortOrder) {
+        case 'ASC': //  Ordenar de manera ascedente 
+            if (sortBy === 'gas_price') {
+                locationsOrder = getLocations.sort((a, b) => (a.gas_price > b.gas_price ? 1 : -1));    
+            }
+            break;
+
+        case 'DESC': // Ordenar de manera descendente
+            if (sortBy === 'gas_price') {
+                locationsOrder = getLocations.sort((a, b) => (a.gas_price < b.gas_price ? 1 : -1));
+            }
+            break;
+
+    }
+    return locationsOrder;
+};
+
+window.sorLocations = sorLocations;
