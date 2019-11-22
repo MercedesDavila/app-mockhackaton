@@ -1,7 +1,7 @@
 let root = document.getElementById("map");
 let gasData = []
 const urlApi =
-    "https://cors-anywhere.herokuapp.com/https://api-gas-stations-mex.herokuapp.com/gasstations";
+    "https://cors-anywhere.herokuapp.com/https://api-gas-stations-mex.herokuapp.com/gasstations?offset=0&limit=100";
 
 navigator.geolocation.getCurrentPosition(getMap, noGet);
 
