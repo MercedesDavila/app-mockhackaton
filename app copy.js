@@ -1,7 +1,7 @@
 let root = document.getElementById("map");
 let gasData = []
 const urlApi =
-    "./gaso.json";
+                "https://cors-anywhere.herokuapp.com/https://api-gas-stations-mex.herokuapp.com/gasstations";
 
 navigator.geolocation.getCurrentPosition(getMap, noGet);
 
@@ -55,11 +55,9 @@ function getMap(position) {
         center: latLng
     }
     let map = new google.maps.Map(root, objConfig);
-    const image = './6274385.jpg'
     marker = new google.maps.Marker({
         position: latLng,
-        map: map,
-        icon: image
+        map: map
         // animation: google.maps.Animation.BOUNCE
     });
     console.log(locationsInfo)
@@ -69,7 +67,7 @@ function getMap(position) {
             position: location.position,
             label: location.name,
             map: map,
-            icon:image
+            
         })
     });
 };
